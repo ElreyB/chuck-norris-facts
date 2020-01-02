@@ -47,8 +47,8 @@ $(document).ready(function() {
   function createCarouselItem(index) {
     var carouselItemEl =
       index === 0
-        ? $("<div class='carousel-item active' data-interval='6000'>")
-        : $("<div class=carousel-item data-interval='6000'>");
+        ? $("<div class='carousel-item active' >")
+        : $("<div class=carousel-item >");
     return carouselItemEl;
   }
 
