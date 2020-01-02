@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  var currentDate = moment().format("dddd MMM. Do, YYYY");
+  $("#current-date").text(currentDate);
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=chuck%norris";
   $.ajax({
@@ -6,6 +8,7 @@ $(document).ready(function() {
     method: "GET"
   }).then(function(response) {
     var results = response.data;
+    $("#quote-count").text(results.length);
 
     for (var i = 0; i < results.length; i++) {
       var gifUrl = results[i].images.original.url;
