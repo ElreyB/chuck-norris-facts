@@ -69,10 +69,12 @@ $(document).ready(function() {
     };
     $.ajax(settings).then(function(response) {
       var captionEl = $("<div></div>");
+      var buttonEl = $("<button></button>");
+      buttonEl.addClass("btn").text("Still");
       captionEl.addClass("carousel-caption d-none d-md-block");
       var text = response.value;
       var textEl = $(`<h2>${text}</h2>`);
-      captionEl.append(textEl);
+      captionEl.append([buttonEl, textEl]);
       element.append(captionEl);
     });
   }
