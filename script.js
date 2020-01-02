@@ -18,7 +18,14 @@ $(document).ready(function() {
       var carouselItemEl = createCarouselItem(i);
 
       var img = $("<img>");
-      img.attr({ src: gifUrl, class: "d-block w-100", alt: "gif" });
+      img.attr({
+        src: gifUrl,
+        class: "d-block w-100",
+        alt: "gif",
+        "data-still": stillUrl,
+        "data-animate": gifUrl,
+        "data-state": "animate"
+      });
 
       carouselItemEl.append(img);
 
