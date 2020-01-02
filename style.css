@@ -38,6 +38,14 @@ h2 {
 }
 
 body {
-  background-color: #cc0000;
   font-family: "Kung Fu Panda";
+}
+
+body,
+.btn {
+  background-color: #cc0000;
+}
+
+.btn p {
+  margin: 0;
 }
