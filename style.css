@@ -2,10 +2,15 @@
   position: relative;
   left: 0;
   top: 0;
+}
+
+.carousel-caption,
+h1 {
   color: #7e4071;
 }
 
-.carousel {
+.carousel,
+h1 {
   background-color: black;
 }
 
@@ -13,6 +18,7 @@
   margin: 100px auto;
 }
 
+h1,
 h2 {
   padding: 20px;
 }
