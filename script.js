@@ -8,10 +8,12 @@ $(document).ready(function() {
     method: "GET"
   }).then(function(response) {
     var results = response.data;
+    console.log(results);
     $("#quote-count").text(results.length);
 
     for (var i = 0; i < results.length; i++) {
-      var gifUrl = results[i].images.original.url;
+      var gifUrl = results[i].images.downsized.url;
+      var stillUrl = results[i].images.downsized_still.url;
 
       var carouselItemEl = createCarouselItem(i);
 
