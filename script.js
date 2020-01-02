@@ -74,7 +74,8 @@ $(document).ready(function() {
         .addClass("btn")
         .attr("type", "button")
         .text("Still");
-      buttonEl.append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
+
+      appendFists(buttonEl);
       buttonEl.click(gifAnimateControl);
       captionEl.addClass("carousel-caption d-none d-md-block");
       var text = response.value;
@@ -85,12 +86,6 @@ $(document).ready(function() {
   }
 
   function gifAnimateControl() {
-    console.log(
-      $(this)
-        .parent()
-        .parent()
-        .children("img")
-    );
     var imgEl = $(this)
       .parent()
       .parent()
@@ -103,19 +98,17 @@ $(document).ready(function() {
         "data-state": "animate"
       });
 
-      $(this)
-        .text("Still")
-        .append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
-    }
-    if (state === "animate") {
+      appendFists($(this).text("Still"));
+    } else if (state === "animate") {
       imgEl.attr({
         src: imgEl.attr("data-still"),
         "data-state": "still"
       });
-
-      $(this)
-        .text("Animate")
-        .append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
+      appendFists($(this).text("Animate"));
     }
+  }
+
+  function appendFists(element) {
+    element.append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
   }
 });
