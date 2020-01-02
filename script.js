@@ -75,11 +75,47 @@ $(document).ready(function() {
         .attr("type", "button")
         .text("Still");
       buttonEl.append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
+      buttonEl.click(gifAnimateControl);
       captionEl.addClass("carousel-caption d-none d-md-block");
       var text = response.value;
       var textEl = $(`<h2>${text}</h2>`);
       captionEl.append([buttonEl, textEl]);
       element.append(captionEl);
     });
+  }
+
+  function gifAnimateControl() {
+    console.log(
+      $(this)
+        .parent()
+        .parent()
+        .children("img")
+    );
+    var imgEl = $(this)
+      .parent()
+      .parent()
+      .children("img");
+    var state = imgEl.attr("data-state");
+
+    if (state === "still") {
+      imgEl.attr({
+        src: imgEl.attr("data-animate"),
+        "data-state": "animate"
+      });
+
+      $(this)
+        .text("Still")
+        .append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
+    }
+    if (state === "animate") {
+      imgEl.attr({
+        src: imgEl.attr("data-still"),
+        "data-state": "still"
+      });
+
+      $(this)
+        .text("Animate")
+        .append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
+    }
   }
 });
