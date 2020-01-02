@@ -1,0 +1,22 @@
+.carousel-caption {
+  position: relative;
+  left: 0;
+  top: 0;
+  color: #7e4071;
+}
+
+.carousel {
+  background-color: black;
+}
+
+.main {
+  margin: 100px auto;
+}
+
+h2 {
+  padding: 20px;
+}
+
+body {
+  background-color: #cc0000;
+}
