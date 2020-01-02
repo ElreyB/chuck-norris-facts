@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Karate";
+  src: url("./fonts/Karate.ttf");
+}
+
+@font-face {
+  font-family: "Kung Fu Panda";
+  src: url("./fonts/Kung_Fu_Panda.otf");
+}
+
 .carousel-caption {
   position: relative;
   left: 0;
@@ -29,4 +39,5 @@ h2 {
 
 body {
   background-color: #cc0000;
+  font-family: "Kung Fu Panda";
 }
