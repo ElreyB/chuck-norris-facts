@@ -14,8 +14,12 @@ h1 {
   background-color: black;
 }
 
-.main {
-  margin: 100px auto;
+.carousel {
+  margin-top: 30px;
+}
+
+main {
+  margin: 0 auto;
 }
 
 h1,
