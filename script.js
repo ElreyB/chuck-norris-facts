@@ -17,24 +17,7 @@ $(document).ready(function() {
     "fashion"
   ];
 
-  var controls = `<a
-                  class="carousel-control-prev"
-                  href="#carouselExampleSlidesOnly"
-                  role="button"
-                  data-slide="prev"
-                  >
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                  </a>
-                  <a
-                  class="carousel-control-next"
-                  href="#carouselExampleSlidesOnly"
-                  role="button"
-                  data-slide="next"
-                  >
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                  </a>`;
+  var controls = $($("#controls").html());
 
   var currentDate = moment().format("dddd MMM. Do, YYYY");
   $("#current-date").text(currentDate);
@@ -160,7 +143,7 @@ $(document).ready(function() {
     var selectedCategory = $(this)
       .children("option:selected")
       .val();
-    console.log(selectedCategory);
+
     $("#current-category").text(selectedCategory);
     chuckGifs();
   });
