@@ -15,6 +15,7 @@
     <title>Ajax Review: Chuck Norris Dev Facts</title>
   </head>
   <body>
+    <!-- <div id="loading">Loading.....</div> -->
     <main class="d-flex justify-content-center align-items-center flex-column">
       <h1 class="text-center">
         On <span id="current-date"></span> I will learn "facts" about Chuck
@@ -24,7 +25,7 @@
       <select name="category-form" id="categories"> </select>
 
       <div
-        id="carouselExampleSlidesOnly"
+        id="myCarousel"
         class="carousel slide w-50"
         data-ride="carousel"
         data-interval="6000"
@@ -33,7 +34,7 @@
           <template id="controls">
             <a
               class="carousel-control-prev"
-              href="#carouselExampleSlidesOnly"
+              href="#myCarousel"
               role="button"
               data-slide="prev"
             >
@@ -45,7 +46,7 @@
             </a>
             <a
               class="carousel-control-next"
-              href="#carouselExampleSlidesOnly"
+              href="#myCarousel"
               role="button"
               data-slide="next"
             >
