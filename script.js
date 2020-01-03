@@ -32,15 +32,6 @@ $(document).ready(function() {
 
       $(".carousel-inner").append(carouselItemEl);
     }
-    // $.each(results, (i, gif) => {
-    //   var gifUrl = gif.images.original.url;
-    //   var carouselItemEl = createCarouselItem(i);
-    //   var img = $("<img>");
-    //   img.attr({ src: gifUrl, class: "d-block w-100", alt: "gif" });
-    //   carouselItemEl.append(img);
-    //   chuckDevFact(carouselItemEl);
-    //   $(".carousel-inner").append(carouselItemEl);
-    // });
   });
 
   function createCarouselItem(index) {
@@ -110,4 +101,47 @@ $(document).ready(function() {
   function appendFists(element) {
     element.append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
   }
+
+  var categories = [
+    "dev",
+    "movie",
+    "food",
+    "celebrity",
+    "science",
+    "political",
+    "sport",
+    "religion",
+    "animal",
+    "music",
+    "history",
+    "travel",
+    "career",
+    "money",
+    "fashion"
+  ];
+
+  var selectEl = $("select#categories");
+  $.each(categories, function(i, category) {
+    var optionEl = $(
+      `<option value=${category}>${category.toUpperCase()}</option>`
+    );
+    selectEl.append(optionEl);
+  });
+
+  // $.each(results, (i, gif) => {
+  //   var gifUrl = gif.images.original.url;
+  //   var carouselItemEl = createCarouselItem(i);
+  //   var img = $("<img>");
+  //   img.attr({ src: gifUrl, class: "d-block w-100", alt: "gif" });
+  //   carouselItemEl.append(img);
+  //   chuckDevFact(carouselItemEl);
+  //   $(".carousel-inner").append(carouselItemEl);
+  // });
+
+  selectEl.change(function() {
+    var selectedCar = $(this)
+      .children("option:selected")
+      .val();
+    console.log(selectedCar);
+  });
 });
