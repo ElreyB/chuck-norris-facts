@@ -15,12 +15,14 @@
 }
 
 .carousel-caption,
-h1 {
+h1,
+select {
   color: #7e4071;
 }
 
 .carousel,
-h1 {
+h1,
+select {
   background-color: black;
 }
 
@@ -54,4 +56,10 @@ body,
 .carousel-control-next {
   bottom: 85%;
   background-color: black;
+}
+
+select {
+  border-color: black;
+  height: 25px;
+  text-align-last: center;
 }
