@@ -1,4 +1,4 @@
-# Chuck Norris Facts
+# [Chuck Norris Facts](https://elreyb.github.io/chuck-norris-facts/)
 
 #### `06-server-side-apis` week review.
 

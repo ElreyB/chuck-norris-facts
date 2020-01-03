@@ -1,12 +1,9 @@
 $(document).ready(function() {
   var ajaxCount = 0;
-  $(document).ajaxStart(function() {
-    $("main, #header, select, #myCarousel").hide();
-    console.log("waiting for ajax");
-  });
+  $("main, #header, select, #myCarousel").hide();
+
   $(document).ajaxComplete(function() {
     ++ajaxCount;
-    console.log("ajax finished", ajaxCount);
     if (ajaxCount === 26) {
       $("#loading").hide();
       $("main, #header, select, #myCarousel").show();
