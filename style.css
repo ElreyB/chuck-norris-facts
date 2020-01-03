@@ -58,3 +58,15 @@ select {
   height: 25px;
   text-align-last: center;
 }
+
+#loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+p {
+  font-size: 20px;
+}

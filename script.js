@@ -1,17 +1,14 @@
 $(document).ready(function() {
-  // var ajaxCount = 0;
-  // $("main, h1, select, #myCarousel").hide();
-  // $(document).ajaxStart(function() {
-  //   console.log("waiting for ajax");
-  // });
-  // $(document).ajaxComplete(function() {
-  //   ++ajaxCount;
-  //   console.log("ajax finished", ajaxCount);
-  //   if (ajaxCount === 10) {
-  //     $("#loading").hide();
-  //     $("main, h1, select, #myCarousel").show();
-  //   }
-  // });
+  var ajaxCount = 0;
+  $("main, #header, select, #myCarousel").hide();
+  $(document).ajaxStart(function() {});
+  $(document).ajaxComplete(function() {
+    ++ajaxCount;
+    if (ajaxCount === 26) {
+      $("#loading").hide();
+      $("main, #header, select, #myCarousel").show();
+    }
+  });
 
   var categories = [
     "dev",
