@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var currentDate = moment().format("dddd MMM. Do, YYYY");
   $("#current-date").text(currentDate);
+
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=chuck%norris";
   $.ajax({
@@ -8,8 +9,6 @@ $(document).ready(function() {
     method: "GET"
   }).then(function(response) {
     var results = response.data;
-    console.log(results);
-    $("#quote-count").text(results.length);
 
     for (var i = 0; i < results.length; i++) {
       var gifUrl = results[i].images.downsized.url;
@@ -29,17 +28,17 @@ $(document).ready(function() {
 
       carouselItemEl.append(img);
 
-      chuckDevJoke(carouselItemEl);
+      chuckDevFact(carouselItemEl);
 
       $(".carousel-inner").append(carouselItemEl);
     }
-    // results.forEach((gif, i) => {
+    // $.each(results, (i, gif) => {
     //   var gifUrl = gif.images.original.url;
     //   var carouselItemEl = createCarouselItem(i);
     //   var img = $("<img>");
     //   img.attr({ src: gifUrl, class: "d-block w-100", alt: "gif" });
     //   carouselItemEl.append(img);
-    //   chuckDevJoke(carouselItemEl);
+    //   chuckDevFact(carouselItemEl);
     //   $(".carousel-inner").append(carouselItemEl);
     // });
   });
@@ -52,7 +51,7 @@ $(document).ready(function() {
     return carouselItemEl;
   }
 
-  function chuckDevJoke(element) {
+  function chuckDevFact(element) {
     var queryURL =
       "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/categories";
     var settings = {
