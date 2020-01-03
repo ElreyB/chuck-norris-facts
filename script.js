@@ -1,38 +1,83 @@
 $(document).ready(function() {
+  var categories = [
+    "dev",
+    "movie",
+    "food",
+    "celebrity",
+    "science",
+    "political",
+    "sport",
+    "religion",
+    "animal",
+    "music",
+    "history",
+    "travel",
+    "career",
+    "money",
+    "fashion"
+  ];
+
+  var controls = `<a
+  class="carousel-control-prev"
+  href="#carouselExampleSlidesOnly"
+  role="button"
+  data-slide="prev"
+  >
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+  </a>
+  <a
+  class="carousel-control-next"
+  href="#carouselExampleSlidesOnly"
+  role="button"
+  data-slide="next"
+  >
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+  </a>`;
+
   var currentDate = moment().format("dddd MMM. Do, YYYY");
   $("#current-date").text(currentDate);
+  chuckGifs();
 
-  var queryURL =
-    "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=chuck%norris";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    var results = response.data;
+  function chuckGifs() {
+    var queryURL =
+      "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=chuck%norris";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      var results = response.data;
+      var category = $("#current-category")
+        .text()
+        .toLowerCase();
 
-    for (var i = 0; i < results.length; i++) {
-      var gifUrl = results[i].images.downsized.url;
-      var stillUrl = results[i].images.downsized_still.url;
+      $(".carousel-inner").empty();
 
-      var carouselItemEl = createCarouselItem(i);
+      for (var i = 0; i < results.length; i++) {
+        var gifUrl = results[i].images.downsized.url;
+        var stillUrl = results[i].images.downsized_still.url;
 
-      var img = $("<img>");
-      img.attr({
-        src: gifUrl,
-        class: "d-block w-100",
-        alt: "gif",
-        "data-still": stillUrl,
-        "data-animate": gifUrl,
-        "data-state": "animate"
-      });
+        var carouselItemEl = createCarouselItem(i);
 
-      carouselItemEl.append(img);
+        var img = $("<img>");
+        img.attr({
+          src: gifUrl,
+          class: "d-block w-100",
+          alt: "gif",
+          "data-still": stillUrl,
+          "data-animate": gifUrl,
+          "data-state": "animate"
+        });
 
-      chuckDevFact(carouselItemEl);
+        carouselItemEl.append(img);
 
-      $(".carousel-inner").append(carouselItemEl);
-    }
-  });
+        chuckFact(carouselItemEl, category);
+
+        $(".carousel-inner").append([carouselItemEl, controls]);
+      }
+    });
+  }
 
   function createCarouselItem(index) {
     var carouselItemEl =
@@ -42,14 +87,15 @@ $(document).ready(function() {
     return carouselItemEl;
   }
 
-  function chuckDevFact(element) {
+  function chuckFact(element, category) {
     var queryURL =
       "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/categories";
     var settings = {
       async: true,
       crossDomain: true,
       url:
-        "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random?category=dev",
+        "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random?category=" +
+        category,
       method: "GET",
       headers: {
         "x-rapidapi-host": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com",
@@ -102,46 +148,18 @@ $(document).ready(function() {
     element.append("<p>👊🏻👊🏼👊🏽👊🏾👊🏿</p>");
   }
 
-  var categories = [
-    "dev",
-    "movie",
-    "food",
-    "celebrity",
-    "science",
-    "political",
-    "sport",
-    "religion",
-    "animal",
-    "music",
-    "history",
-    "travel",
-    "career",
-    "money",
-    "fashion"
-  ];
-
   var selectEl = $("select#categories");
   $.each(categories, function(i, category) {
-    var optionEl = $(
-      `<option value=${category}>${category.toUpperCase()}</option>`
-    );
+    var optionEl = $(`<option value=${category}>${category}</option>`);
     selectEl.append(optionEl);
   });
 
-  // $.each(results, (i, gif) => {
-  //   var gifUrl = gif.images.original.url;
-  //   var carouselItemEl = createCarouselItem(i);
-  //   var img = $("<img>");
-  //   img.attr({ src: gifUrl, class: "d-block w-100", alt: "gif" });
-  //   carouselItemEl.append(img);
-  //   chuckDevFact(carouselItemEl);
-  //   $(".carousel-inner").append(carouselItemEl);
-  // });
-
   selectEl.change(function() {
-    var selectedCar = $(this)
+    var selectedCategory = $(this)
       .children("option:selected")
       .val();
-    console.log(selectedCar);
+    console.log(selectedCategory);
+    $("#current-category").text(selectedCategory);
+    chuckGifs();
   });
 });
