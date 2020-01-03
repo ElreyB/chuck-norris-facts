@@ -49,3 +49,9 @@ body,
 .btn p {
   margin: 0;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+  bottom: 95%;
+  background-color: black;
+}
