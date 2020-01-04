@@ -1,14 +1,14 @@
 $(document).ready(function() {
-  // var ajaxCount = 0;
-  // $("main, #header, select, #myCarousel").hide();
+  var ajaxCount = 0;
+  $("main, #header, select, #myCarousel").hide();
 
-  // $(document).ajaxComplete(function() {
-  //   ++ajaxCount;
-  //   if (ajaxCount === 3) {
-  //     $("#loading").hide();
-  //     $("main, #header, select, #myCarousel").show();
-  //   }
-  // });
+  $(document).ajaxComplete(function() {
+    ++ajaxCount;
+    if (ajaxCount === 3) {
+      $("#loading").hide();
+      $("main, #header, select, #myCarousel").show();
+    }
+  });
 
   var categories = [
     "dev",
