@@ -38,6 +38,9 @@
 - pomodoro breaks
   - [Original Book](https://lasolutionestenvous.com/wp-content/uploads/2014/04/ThePomodoroTechnique_v1-3.pdf)
   - [Short Pamphlet](https://www.docdroid.net/p4o4U6b/how-to-use-a-pomodoro-timer.pdf)
+  - Videos
+    - [Pomodoro Technique For Productivity](https://www.youtube.com/watch?v=ykMzzZolhdk)
+    - [POMODORO TECHNIQUE](https://www.youtube.com/watch?v=mNBmG24djoY)
 - do something different
   - go for a run/walk
   - play a short game
